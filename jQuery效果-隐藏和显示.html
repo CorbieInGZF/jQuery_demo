@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>jQuery效果-隐藏和显示</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+</script>
+</head>
+<body>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$("#hide").click(function(){
+    			$("p").hide(1000);
+    		});
+    		$("#show").click(function(){
+    			$("p").show(1000);
+    			//$(selector).hide(speed,callback);
+    			// 可选的 speed 参数规定隐藏/显示的速度，可以取以下值："slow"、"fast" 或毫秒。
+                //可选的 callback 参数是隐藏或显示完成后所执行的函数名称。
+    		});
+    	});
+    	//toggle实现hide()&show()的切换
+    	$(document).ready(function(){
+    		$("button.tog").click(function(){
+    			$("p.toggle").toggle();
+    		});
+    	});
+    </script>
+
+    <p>按下切换显示与隐藏</p>
+    <button id="hide">隐藏</button>
+    <button id="show">显示</button>
+    <br>
+
+    <p class="toggle">toggle实现hide()&show</p>
+    <p class="toggle">toggle实现hide()&show</p>
+    <button class="tog">隐藏/显示</button>
+</body>
+</html>

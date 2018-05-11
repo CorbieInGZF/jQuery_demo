@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>jQuery事件</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+</script>
+<style type="text/css">
+	table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+
+</style>
+</head>
+<body>
+    <table>
+    	<caption>常见DOM事件</caption>
+    	<tr>
+    		<td>鼠标事件</td>
+    		<td>键盘事件</td>
+    		<td>表单事件</td>
+    		<td>文档/窗口事件</td>
+    	</tr>
+    	<tr>
+    		<td>click&emsp;&emsp;单击</td>
+    		<td>keypress&emsp;&emsp;键盘按动</td>
+    		<td>submit&emsp;&emsp;提交</td>
+    		<td>load&emsp;&emsp;加载</td>
+    	</tr>
+    	<tr>
+    		<td>dblclick&emsp;&emsp;双击</td>
+    		<td>keydown&emsp;&emsp;键盘按下</td>
+    		<td>change&emsp;&emsp;修改</td>
+    		<td>resize&emsp;&emsp;大小改变</td>
+    	</tr>
+    	<tr>
+    		<td>mouseenter&emsp;&emsp;鼠标进入</td>
+    		<td>keyup&emsp;&emsp;键盘被抬起</td>
+    		<td>focus&emsp;&emsp;字段获得对焦</td>
+    		<td>scroll&emsp;&emsp;滚动</td>
+    	</tr>
+        <tr>
+        	<td>mouseleave&emsp;&emsp;鼠标指针离开</td>
+        	<td></td>
+        	<td>blur&emsp;&emsp;字段失去对焦</td>
+        	<td>unload&emsp;&emsp;离开页面</td>
+        </tr>
+    </table>
+
+   
+    <script>
+    	//keypress
+    	i=0;
+    	$(document).ready(function(){
+    		$("input").keypress(function(){
+    			$("span").text(i+=1);
+    		});
+    	});
+        //submit
+        $(document).ready(function(){
+        	$("form").submit(function(){
+        		alert("提交");
+        	});
+        });
+        //load
+        $(document).ready(function(){
+        	$("img").load(function(){
+        		alert("图片已载入");
+        	});
+        });
+        //dblclick
+        $(document).ready(function(){
+            $(".db").dblclick(function(){
+        	    alert("这个段落被双击");
+            });	
+        });
+        //keydown&keyup
+        $(document).ready(function(){
+        	$("input").keydown(function(){
+        		$("input").css("background-color","yellow");
+        	});
+        	$("input").keyup(function(){
+        		$("input").css("background-color","pink");
+        	});
+        });
+        //change
+        $(document).ready(function(){
+        	$("input").change(function(){
+        		alert("文本已被修改");
+        	});
+        });
+        //resize
+        x=0;
+        $(document).ready(function(){
+        	$(window).resize(function(){
+        		$(".size").text(x+=1);
+        	});
+        });
+        //mouseenter
+        $(document).ready(function(){
+        	$(".mouse").mouseenter(function(){
+        		$(".mouse").css("background-color","yellow");
+        	});
+        	$(".mouse").mouseleave(function(){
+        		$(".mouse").css("background-color","lightgray");
+        	});
+        });
+        //focus
+        $(document).ready(function(){
+        	$("input").focus(function(){
+        		$(".fcs").css("display","inline").fadeOut(2000);
+        	});
+        });
+        //scroll
+        y=0;
+        $(document).ready(function(){
+        	$("div").scroll(function(){
+        		$(".scroll").text(y+=1);
+        	});
+        });
+        //blur
+        $(document).ready(function(){
+        	$("input").blur(function(){
+        		alert("输入框失去了焦点");
+        	});
+        });
+    </script>
+
+    <form action="">
+    输入：<input type="text">
+    <p>按键次数：<span>0</span></p>
+    <input type="submit" value="提交">
+    </form>s
+    <img src="闻香识女人.jpg" alt="" width="100" height="150">
+    <p class="db">双击</p>
+    <p>尝试改变窗口大小</p>
+    <p>窗口大小改变次数：<font class="size">0</font></p>
+    <p class="mouse">鼠标触发事件</p>
+    <input>
+    <span class="fcs">请输入</span>
+    <p>点击输入框获得焦点</p>
+
+    <div style="border: 1px solid black;width: 200px;opacity:height:100px;overflow: scroll;">11111111111111111111111111111111111111111111<br><br>1</div>
+    <p>滚动了<span class="scroll">0</span>次</p>
+
+    输入：<input type="text">
+    <p>在输入框写些东西，然后点击输入框外，让其失去焦点。</p>
+</body>
+</html>

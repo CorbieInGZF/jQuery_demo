@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>jQuery链(Chaining)</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+</script>
+</head>
+<body>
+    <p>通过 jQuery，可以把动作/方法链接在一起。</p>
+    <p>Chaining 允许我们在一条语句中运行多个 jQuery 方法（在相同的元素上）。</p>
+
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$("button").click(function(){
+    			$("#p1").css("color","red").slideUp(2000).slideDown(2000);
+    		});
+    	});
+    </script>
+
+    <p id="p1">hello</p>
+    <button>点击</button>
+</body>
+</html>

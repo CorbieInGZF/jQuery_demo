@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>jQuery 获取内容和属性</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+</script>
+</head>
+<body>
+    <p>DOM = Document Object Model（文档对象模型）</p>
+    <h1>jQuery DOM操作</h1>
+    <h3>获得内容-text()、html()以及val():</h3>
+
+    <script type="text/javascript">
+    	//获取text()&html()
+    	$(document).ready(function(){
+    		$("#btn1").click(function(){
+    			alert("Text: "+$("#test").text());
+    		});
+    		$("#btn2").click(function(){
+    			alert("HTML: "+$("#test").html());
+    		});
+    	});
+        //获取val()
+        $(document).ready(function(){
+        	$("#btn3").click(function(){
+        		alert("值： "+$("#test1").val());
+        	});
+        });
+    </script>
+
+    <p id="test"><b>DOM操作</b>获取text()、html()</p>
+    <button id="btn1">显示文本</button>
+    <button id="btn2">显示HTML</button>
+
+    <p>姓名：<input type="text" id="test1" value="Qu"></p>
+    <button id="btn3">显示值</button>
+
+    <h3>获取属性-attr():</h3>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$("#btn4").click(function(){
+    			alert($("#Corbie").attr("href"));
+    		});
+    	});
+    </script>
+
+    <p><a href="www.Corbie.cn" id="Corbie">Corbie.cn</a></p>
+    <button id="btn4">获取href属性的值</button>
+</body>
+</html>

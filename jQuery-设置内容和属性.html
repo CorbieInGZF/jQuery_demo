@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>jQuery-设置内容和属性</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+</script>
+</head>
+<body>
+    <h3>设置内容-text()、html()以及val():</h3>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$("#btn1").click(function(){
+    			$("#test1").text("Hello World!");
+    		});
+    		$("#btn2").click(function(){
+    			$("#test2").html("<b>Hello World!</b>");
+    		});
+    		$("#btn3").click(function(){
+    			$("#test3").val("Corbie");
+    		});
+    	});
+    </script>
+
+    <p id="test1">获取text的段落</p>
+    <p id="test2">获取html的段落</p>
+    <p>输入框：<input type="text" id="test3" value="Corbie.cn"></p>
+    <button id="btn1">设置文本</button>
+    <button id="btn2">设置html</button>
+    <button id="btn3">设置值</button>
+
+    <h3>text()、html()、val()的回掉函数</h3>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$("#btn4").click(function(){
+    			$("#test4").text(function(i,origText){
+    				return "旧文本： " + origText + "新文本：Hello World!(index: " + i +")";
+    			});
+    		});
+    		$("#btn5").click(function(){
+    			$("#test5").html(function(i,origText){
+    				return "旧HTML： " + origText + "新HTML: Hello <b>World!</b>(index:"+ i +")";
+    			});
+    		});
+    	});
+    </script>
+
+    <p id="test4">旧text文本</p>
+    <p id="test5">旧<b>html</b>文本</p>
+    <button id="btn4">显示新/旧文本</button>
+    <button id="btn5">显示新/旧html</button>
+
+    <h3>设置属性-attr()</h3>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$("#btn6").click(function(){
+    			$("#bd").attr({
+    				"href":"http://news.baidu.com/",
+    				"title":"百度新闻"
+    			});
+    			//通过修改title值来修改链接名称
+    			title=$("#bd").attr("title");
+    			$("#bd").html(title);
+    		});
+    	});
+    </script>
+
+    <p><a href="https://www.baidu.com/" target="_blank" id="bd">百度</a></p>
+    <button id="btn6">修改href和title值</button>
+
+    <h3>attr()的回调函数：</h3>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$("#btn7").click(function(){
+    			$("#git").attr({
+    				"href":function(i,origValue){
+    				return origValue + "/jQuery_demo"},
+    				"title":"Repository"
+    			});
+    			title=$("#git").attr("title");
+    			$("#git").html(title);
+    		});
+    	});
+    </script>
+    <p><a href="https://github.com/CorbieInGZF" target="_blank" id="git">github</a></p>
+    <button id="btn7">修改href值</button>
+</body>
+</html>

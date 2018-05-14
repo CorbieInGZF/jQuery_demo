@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>jQuery效果-动画</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+</script>
+</head>
+<body>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$("button.a").click(function(){
+    			$("div").animate({
+    				left:'250px',
+    				opacity:'0.5',
+    				height:'150',
+    				width:'150px'
+    			});
+    		});
+    		//使用相对值
+    		$("button.b").click(function(){
+    			$("div").animate({
+    				left:'250px',
+    				height:'+=150px',
+    				width:'+=150px'
+    			});
+    		});
+    		//使用预定值
+    		$("button.c").click(function(){
+    			$("div").animate({
+    				height:'toggle'
+    			});
+    		});
+    		//使用队列功能
+    		$("button.d").click(function(){
+    			var div = $("div");
+    			div.animate({height:'300px',opacity:'0.4'},"slow");
+    			div.animate({width:'300px',opacity:'0.8'},"slow");
+    			div.animate({fontSize:'2.5em'},"slow");
+    			div.animate({height:'100px',opacity:'0.4'},"slow");
+    			div.animate({width:'100px',opacity:'0.8'},"slow");
+    		})
+    	});
+    </script>
+
+    <button class="a">开始动画</button>
+    <button class="b">使用相对值</button>
+    <button class="c">使用预定值</button>
+    <button class="d">使用队列</button>
+    <p>默认情况下，所有的 HTML 元素有一个静态的位置，且是不可移动的。 如果需要改变为，我们需要将元素的 position 属性设置为 relative, fixed, 或 absolute!</p>
+    <div style="background-color: #98bf21; height: 100px; width: 100px; position: absolute;">hello</div>
+</body>
+</html>

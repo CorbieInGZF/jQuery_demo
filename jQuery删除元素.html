@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>jQuery删除元素</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+</script>
+</head>
+<body>
+    <h4>删除元素和内容的两个jQuery方法：</h4>
+    <ul style="list-style-type: disc;">
+    	<li>remove()-删除被选元素（及其子元素）</li>
+    	<li>empty()-从被选元素中删除子元素</li>
+    </ul>
+
+    <script type="text/javascript">
+    	//remove（）
+    	$(document).ready(function(){
+    		$("#btn1").click(function(){
+    			$("#div1").remove();
+    		});
+    	});
+    	//empty()
+    	$(document).ready(function(){
+    		$("#btn2").click(function(){
+    			$("#div1").empty();
+    		});
+    	});
+    	//remove()可允许对被删元素进行过滤
+    	$(document).ready(function(){
+    		$("#btn3").click(function(){
+    			$("p").remove(".italic");
+    		});
+    	});
+    </script>
+
+    <div id="div1" style="height: 100px;width: 300px;border: 1px solid black;background-color: lightblue">
+    	div中的文本
+    	<p class="italic" style="font-style: italic;">这是在div中的段落</p>
+    	<p>另一个段落</p>
+    </div>
+
+    <button id="btn1">删除div元素</button>
+    <button id="btn2">删除div的子元素</button>
+    <button id="btn3">删除斜体字</button>
+</body>
+</html>

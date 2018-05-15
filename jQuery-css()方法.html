@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>jQuery-css()方法</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js">
+</script>
+</head>
+<body>
+    <p>css方法设置或返回被选元素的一个或多个属性</p>
+
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		//返回css属性（默认返回第一个的属性）
+    		$("#btn1").click(function(){
+    			alert("背景颜色 = " + $("p").css("background-color"));
+    		});
+    		//设置css属性
+    		$("#btn2").click(function(){
+    			$("p").css("background-color","yellow");
+    		});
+    		//设置多个css属性
+    		$("#btn3").click(function(){
+    			$("p").css({"background-color":"yellow","font-size":"200%"});
+    		});
+    	});
+    </script>
+
+    <p style="background-color:#ff0000">这是一个段落。</p>
+    <p style="background-color:#00ff00">这是一个段落。</p>
+    <p style="background-color:#0000ff">这是一个段落。</p>
+    <button id="btn1">返回第一个 p 元素的 background-color </button>
+    <button id="btn2">设置 p 元素的 background-color </button>
+    <button id="btn3">设置 p 元素的多个css属性</button>
+</body>
+</html>

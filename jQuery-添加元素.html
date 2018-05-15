@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>jQuery-添加元素</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+</script>
+</head>
+<body>
+	<h4>用于添加新内容的四个jQuery方法：</h4>
+    <ul style="list-style-type: disc;">
+    	<li>append()-在被选元素的结尾插入内容</li>
+    	<li>prepend()-在被选元素的开头插入内容</li>
+    	<li>after()-在被选元素之后插入内容</li>
+    	<li>before()-在被选元素之前插入内容</li>
+    </ul>
+    <b style="color: red">append/prepend 是在选择元素内部嵌入。after/before 是在元素外面追加。</b>
+
+    <script type="text/javascript">
+    	//append()
+    	$(document).ready(function(){
+    		$("#btn1").click(function(){
+    			$("#a").append("<b>追加文本</b>");
+    		});
+    		$("#btn2").click(function(){
+    			$("ol").append("<li>追加列表项</li>");
+    		});
+    	});
+    	//prepend()
+    	$(document).ready(function(){
+    		$("#btn3").click(function(){
+    			$("#a").prepend("<b>在开头追加文本</b>");
+    		});
+    		$("#btn4").click(function(){
+    			$("ol").prepend("<li>在开头添加列表项");
+    		});
+    	});
+    	//append()&prepend()添加若干新元素
+    	function appendText(){
+    		var txt1 = "<p>文本。</p>";//html创建文本
+    		var txt2 = $("<p></p>").text("文本。");//jQuery创建文本
+    		var txt3 = document.createElement("p");
+    		txt3.innerHTML="文本。";//DOM创建文本
+    		$("body").append(txt1,txt2,txt3);//追加新元素
+    	}
+    	//after()&before()
+    	$(document).ready(function(){
+    		$("#btn5").click(function(){
+    			$("img").before("<b>之前</b>");
+    		});
+    		$("#btn6").click(function(){
+    			$("img").after("<i>之后</i>");
+    		});
+    	});
+    </script>
+
+    <p id="a">段落一</p>
+    <p id="a">段落二</p>
+
+    <ol>
+    	<li>list item 1</li>
+    	<li>list item 2</li>
+    </ol>
+
+    <button id="btn1">添加文本</button>
+    <button id="btn2">添加列表项</button>
+    <button id="btn3">在开头添加文本</button>
+    <button id="btn4">在开头添加列表项</button>
+
+    <button onclick="appendText()">追加文本</button><br>
+
+    <img src="闻香识女人.jpg" width="100" height="150">
+    <button id="btn5">之前插入</button>
+    <button id="btn6">之后插入</button>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>jQuery遍历-过滤</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+</script>
+</head>
+<body>
+    <h4>first()方法：</h4>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		//first()
+    		$("#btn1").click(function(){
+                $("div p").first().css("background-color","yellow");
+    		});
+    		//last()
+    		$("#btn2").click(function(){
+    			$("div p").last().css("background-color","red");
+    		});
+    		//eq()返回被选元素中带有指定索引号的元素
+    		$("#btn3").click(function(){
+    			$("div p").eq(1).css("background-color","blue");
+    		});
+    		//filter()规定标准，只返回匹配标准的元素
+    		$("#btn4").click(function(){
+    			$("p").filter(".url").css("background-color","green");
+    		});
+    		//not()与filter()相反
+    		$("#btn5").click(function(){
+    			$("p").not(".url").css("background-color","pink");
+    		});
+    	});
+    </script>
+
+    <h1>欢迎访问我的主页</h1>
+    <div>
+	   <p>Corbie.cn</p>
+    </div>
+
+    <div>
+	   <p class="url">http://www.Corbie.cn</p>
+    </div>
+
+    <p class="url">http://www.google.com</p>
+
+    <button id="btn1">first()</button>
+    <button id="btn2">last()</button>
+    <button id="btn3">eq(1)</button>
+    <button id="btn4">filter(".url")</button>
+    <button id="btn5">not(".url")</button>
+</body>
+</html>

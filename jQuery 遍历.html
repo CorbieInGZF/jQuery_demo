@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>jQuery 遍历</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+</script>
+</head>
+<body>
+    <h1>遍历祖先</h1>
+    <h4>向上遍历DOM树</h4>
+    <ul style="list-style-type: disc;">
+    	<li>parent()</li>
+    	<li>parents()</li>
+    	<li>parentsUntil()</li>
+    </ul>
+
+    <style type="text/css">
+    	.ancestors *{
+    		display: block;
+    		border: 2px solid lightgrey;
+    		color: lightgrey;
+    		padding: 5px;
+    		margin: 15px;
+    	}
+    </style>
+
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		//parent()直接返回被选元素父元素
+    		$("#btn1").click(function(){
+                $("span").parent().css({"color":"red","border":"2px solid red"});
+    		});
+    		//parents()返回被选元素所有祖先元素
+    		$("#btn2").click(function(){
+    			$("span").parents().css({"color":"blue","border":"2px solid blue"});
+    		});
+    		//parentsUntil()返回介于两给定元素之间的所有祖先元素
+    		$("#btn3").click(function(){
+    			$("span").parentsUntil("div").css({"color":"green","border":"2px solid green"});
+    		})
+    	});
+    </script>
+
+    <div class="ancestors">
+    	<div style="width: 500px;">div(曾祖父元素)
+    		<ul>ul(祖父元素)
+    			<li>li(父元素)
+    				<span>span</span>
+    			</li>
+    		</ul>
+    	</div>
+
+    	<div style="width: 500px;">div(祖父元素)
+    	  <p>p(父元素)
+    		  <span>span</span>
+    	  </p>
+        </div>
+    </div>
+    <button id="btn1">parent()</button>
+    <button id="btn2">parents()</button>
+    <button id="btn3">parentsUntil()</button>
+
+    <h4>向下遍历树</h4>
+    <ul style="list-style-type: disc;">
+    	<li>children()</li>
+    	<li>find()</li>
+    </ul>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		//children()返回被选元素的所有直接子元素
+    		$("#btn4").click(function(){
+    			$("div").children().css({"color":"red","border":"2px solid yellow"});
+    		});
+    		//find()返回被选元素的后代元素，直到最后一个后代
+    		$("#btn5").click(function(){
+    			//返回所有span
+    			$("div").find("span").css({"color":"pink","border":"2px solid pink"});
+    		});
+    		$("#btn6").click(function(){
+    			$("div").find("*").css({"color":"pink","border":"2px solid pink"});
+    		});
+    	});
+    </script>
+
+    <button id="btn4">children()</button>
+    <button id="btn5">find("span")</button>
+    <button id="btn6">find("*")</button>
+
+    <h4>DOM树中水平遍历</h4>
+    <ul style="list-style-type: disc;">
+    	<li>siblings()</li>
+    	<li>next()</li>
+    	<li>nextAll()</li>
+    	<li>nextUntil()</li>
+    	<li>prev()</li>
+    	<li>prevAll()</li>
+    	<li>prevUntil()</li>
+    </ul>
+
+    <style type="text/css">
+    	.siblings *{
+    		display: block;
+    		border: 2px solid lightgrey;
+    		color: lightgrey;
+    		padding: 5px;
+    		margin: 15px;
+    	}
+    </style>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		//siblings()返回所有同胞元素
+    		$("#btn7").click(function(){
+                $("h2").siblings().css({"color":"red","border":"2px solid red"});
+    		});
+    		//next()返回被选元素的下一个同胞元素
+    		$("#btn8").click(function(){
+                $("h2").next().css({"color":"red","border":"2px solid red"});
+    		});
+    		//nextAll()返回被选元素的所有跟随的同胞元素
+    		$("#btn9").click(function(){
+    			$("h2").nextAll().css({"color":"red","border":"2px solid red"});
+    		});
+    		//nextUntil()返回介于两给定元素之间的所有跟随的同胞元素
+    		$("#btn10").click(function(){
+    			$("h2").nextUntil("h6").css({"color":"red","border":"2px solid red"});
+    		});
+    	});
+    </script>
+    
+    <div class="siblings">
+    	<div>div(父元素)
+    		<span>span</span>
+    		<h2>h2</h2>
+    		<h3>h3</h3>
+    		<h6>h6</h6>
+    		<p>p</p>
+    	</div>
+    </div>
+
+    <button id="btn7">siblings()</button>
+    <button id="btn8">next()</button>
+    <button id="btn9">nextAll()</button>
+    <button id="btn10">nextUntil()</button>
+    <br>
+
+    <font style="font-size: 2em;color:red">prev(), prevAll() 以及 prevUntil() 方法的工作方式与上面的方法类似，只不过方向相反而已：它们返回的是前面的同胞元素（在 DOM 树中沿着同胞之前元素遍历，而不是之后元素遍历）。</font>
+</body>
+</html>
